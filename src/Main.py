@@ -1,32 +1,21 @@
-from datetime import date
-from datetime import datetime
-from tkinter import *
-#import tkMessageBox
-import tkinter
-#import threading
+from Course import Course
+from Task import Task
+from GUI import GUI
 
-now = datetime.now()
-current_date = now.strftime("%A %B %d, %Y  %I:%M%p")
+GUI()
+class1 = Course("Math", "red")
 
-
-window = tkinter.Tk()
-window.minsize(600, 450)
-
-print(current_date)
-
-date_time = Label(window, text=current_date, font=('Times 14'), width=30, height=10).place(x = 150, y = -50)
+# class1.add_task(Task(2, "Homework", "10/10/2021", "Do the math homework"))
 
 
-    
-
-def update():
-    print("update")
-    now = datetime.now()
-    date_time.text.set(now.strftime("%A %B %d, %Y  %I:%M%p"))
-    window.after(1000, update)
+# tasks = class1.get_tasks()
+# for task in tasks:
+#     print(task.taskName)
+#     print(task.dueDate)
+#     print(task.description)
 
 
-update()
+
 
 
 
@@ -40,7 +29,6 @@ update()
 
 
 
-window.mainloop()
 
 # def calculate():
 #     response = 0
