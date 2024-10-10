@@ -1,9 +1,36 @@
 from Course import Course
 from Task import Task
 from GUI import GUI
+from CourseManager import CourseManager
+import sqlite3
+import threading
 
-GUI()
-class1 = Course("Math", "red")
+conn = sqlite3.connect('work_organizer.db')
+conn.execute('''CREATE TABLE IF NOT EXISTS Courses
+            (CourseId INT PRIMARY KEY     NOT NULL,
+            CourseName TEXT NOT NULL,
+            Color TEXT NOT NULL);''')
+conn.execute('''CREATE TABLE IF NOT EXISTS Assignments
+            (TaskID INT PRIMARY KEY     NOT NULL,
+            TaskName TEXT NOT NULL, 
+            CourseName TEXT NOT NULL,
+            DueDate TEXT NOT NULL,
+            Description TEXT NOT NULL,
+            Completed INT NOT NULL);''')
+conn.execute
+conn.commit()
+conn.close() 
+
+
+manager = CourseManager()
+gui = GUI(manager)
+
+
+# for course in manager.get_courses():
+#     if course.name == "Math":
+#         course.add_task("Homework", "10/10/2021", "Webassign 2")
+
+#manager.add_course(Course("Databases", "blue"))
 
 # class1.add_task(Task(2, "Homework", "10/10/2021", "Do the math homework"))
 
